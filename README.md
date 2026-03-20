@@ -90,12 +90,12 @@ This project demonstrates the design and implementation of a scalable enterprise
 
 ## 📁 Project Structure
 - enterprise-network-project/
-  │
-  ├── README.md
-  ├── enterprise-network-topology.png
-  ├── configurations/
-  ├── packet-tracer/
-  └── documents/
+- │
+- ├── README.md
+- ├── enterprise-network-topology.png
+- ├── configurations/
+- ├── packet-tracer/
+- └── documents/
 
 ---
 
