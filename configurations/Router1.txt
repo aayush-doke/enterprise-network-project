@@ -1,6 +1,7 @@
+R1#show run
 Building configuration...
 
-Current configuration : 1817 bytes
+Current configuration : 2044 bytes
 !
 version 15.1
 no service timestamps log datetime msec
@@ -92,6 +93,7 @@ router ospf 1
  default-information originate
 !
 ip nat inside source list 1 interface Serial0/2/0 overload
+ip nat inside source list 2 interface Serial0/2/1 overload
 ip classless
 ip route 0.0.0.0 0.0.0.0 195.136.17.2 
 ip route 0.0.0.0 0.0.0.0 195.136.17.6 5
@@ -103,6 +105,10 @@ access-list 1 permit 172.16.1.0 0.0.0.255
 access-list 1 permit 172.16.2.0 0.0.0.255
 access-list 1 permit 172.16.3.0 0.0.0.255
 access-list 1 permit 172.16.4.0 0.0.0.255
+access-list 2 permit 172.16.1.0 0.0.0.255
+access-list 2 permit 172.16.2.0 0.0.0.255
+access-list 2 permit 172.16.3.0 0.0.0.255
+access-list 2 permit 172.16.4.0 0.0.0.255
 !
 banner motd ^C Unauthorized access prohibited ^C
 !
