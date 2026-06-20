@@ -1,6 +1,7 @@
+DSW2#show run
 Building configuration...
 
-Current configuration : 2971 bytes
+Current configuration : 3041 bytes
 !
 version 12.2(37)SE1
 no service timestamps log datetime msec
@@ -161,6 +162,8 @@ router ospf 1
  network 172.16.4.0 0.0.0.255 area 0
  network 172.16.5.8 0.0.0.3 area 0
  network 172.16.5.12 0.0.0.3 area 0
+ network 172.16.5.0 0.0.0.3 area 0
+ network 172.16.5.4 0.0.0.3 area 0
 !
 ip classless
 !
