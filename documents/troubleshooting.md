@@ -43,17 +43,20 @@ redistribute static subnets
 
 ---
 
-## 🚨 4. NAT Overwrite Issue
+## 🚨 4. NAT Overwrite Bug (Dual-WAN Limitation)
 
 ### Problem:
-Only one NAT rule was visible in configuration.
+- Attempting to apply multiple NAT overload commands bound to separate outbound interfaces caused the commands to overwrite each other in the Cisco IOS running configuration.
 
 ### Cause:
-Multiple NAT overload commands overwrite each other.
+- Cisco IOS treats mapping the exact same standard Access Control List (ACL) to two different physical outbound interfaces as a direct command conflict, overwriting the previous entry.
 
 ### Solution:
-- Used correct NAT configuration per router
-- Avoided conflicting rules
+- Implemented the Access List Split Trick to bypass the syntax limitation.
+- Created two identical, standalone access lists (access-list 10 and access-list 20) containing the enterprise private network footprints.
+- Separately bound each list to its respective primary and backup interface, allowing simultaneous NAT rules to coexist without conflict:
+- `ip nat inside source list 10 interface Serial0/2/0 overload`
+- `ip nat inside source list 20 interface Serial0/2/1 overload`
 
 ---
 
